@@ -36,7 +36,7 @@ class HttpRequest {
 
             ajax.onerror = event => {
 
-                reject(e)
+                reject(event)
 
             }
     
@@ -53,12 +53,12 @@ class HttpRequest {
                     console.error(e);
                 }
 
-                resolve()
+                resolve(obj)
             }
 
-    
+                    ajax.setRequestHeader('Content-Type', 'application/json')
                
-                    ajax.send()
+                    ajax.send(JSON.stringify(params));
             
         });
 
